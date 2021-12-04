@@ -319,7 +319,8 @@ class PeerConnection(threading.Thread):
 
         else:
             #pass the packet along to the main thread
-            self.queue.put(packet.update({'mtype':'relay'}))
+            packet['mtype'] = 'relay'
+            self.queue.put(packet)
 
 
 
@@ -621,7 +622,10 @@ if __name__ == '__main__':
             elif command == "help":
                 print("\thelp - this")
                 print("\texit - clean shutdown (ctrl+c also fine)")
-                print("\tusers - list connected users")
+                print("\tconnect [user key] - ask to connect to this user")
+                print("\taccept [user key] - accept a connection request from this user")
+                print("\tcancel [user key] - cancel a previous connection request to this user")
+                print("\treject [user key] - reject a connection request from this user")
 
             else:
                 print("\tCMD \""+command+"\" not recognised!")
