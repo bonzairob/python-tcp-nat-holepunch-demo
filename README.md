@@ -65,3 +65,6 @@ Square brackets are just for the template, don't inculde them (e.g. `tell 123abc
 * `accept [user key]` - accept a connection request from this user
 * `cancel [user key]` - cancel a previous connection request to this user
 * `reject [user key]` - reject a connection request from this user
+
+
+**Note:** the demo is set up to auto-connect users to each other as soon as two join. The code for this is in `testclient.py ServerConnection.processServerPacket` marked with `#AUTO` comments.
